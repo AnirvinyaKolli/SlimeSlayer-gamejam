@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbk7daablcmhs"]
+[gd_scene load_steps=7 format=3 uid="uid://bbk7daablcmhs"]
 
 [ext_resource type="PackedScene" uid="uid://2f5e016s35bm" path="res://boss_fight_section/boss/abusive_father.tscn" id="1_gfo2m"]
+[ext_resource type="Script" uid="uid://gbnm36v7qtxb" path="res://testing/test_scene.gd" id="1_qd2h8"]
+[ext_resource type="PackedScene" uid="uid://eb6j5fnhpwct" path="res://testing/camera_2d.tscn" id="3_xraay"]
+[ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://player/player.tscn" id="4_q3vq8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rc4ay"]
 
@@ -8,6 +11,7 @@
 size = Vector2(1158, 20)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qd2h8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -20,5 +24,37 @@ texture = SubResource("PlaceholderTexture2D_rc4ay")
 position = Vector2(574, 599)
 shape = SubResource("RectangleShape2D_gfo2m")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(554, 631)
+rotation = -1.57658
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(575, 599)
+scale = Vector2(1146.05, -17.7655)
+texture = SubResource("PlaceholderTexture2D_rc4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(574, 599)
+shape = SubResource("RectangleShape2D_gfo2m")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-594, 659)
+rotation = -1.57658
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(575, 599)
+scale = Vector2(1146.05, -17.7655)
+texture = SubResource("PlaceholderTexture2D_rc4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(574, 599)
+shape = SubResource("RectangleShape2D_gfo2m")
+
 [node name="abusive_father" parent="." instance=ExtResource("1_gfo2m")]
 position = Vector2(523, 289)
+
+[node name="Camera2D" parent="." instance=ExtResource("3_xraay")]
+position = Vector2(583, 321)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_q3vq8")]
+position = Vector2(184, 139)

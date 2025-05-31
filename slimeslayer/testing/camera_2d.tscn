@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://eb6j5fnhpwct"]
+
+[ext_resource type="Script" uid="uid://dknw6err7j2bj" path="res://testing/camera_2d.gd" id="1_n0rl5"]
+[ext_resource type="Script" uid="uid://crjl0bdphqu7b" path="res://testing/control.gd" id="2_qx2qm"]
+
+[node name="Camera2D" type="Camera2D"]
+script = ExtResource("1_n0rl5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -327.0
+offset_right = 575.0
+offset_bottom = 324.0
+script = ExtResource("2_qx2qm")

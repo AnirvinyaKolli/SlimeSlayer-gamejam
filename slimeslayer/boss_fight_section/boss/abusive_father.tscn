@@ -1,21 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://2f5e016s35bm"]
+[gd_scene load_steps=6 format=3 uid="uid://2f5e016s35bm"]
 
 [ext_resource type="Script" uid="uid://6m02tohl0d2a" path="res://boss_fight_section/boss/boss_controller.gd" id="1_lcskn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ipmmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcskn"]
-size = Vector2(109.092, 170.576)
+size = Vector2(47.6562, 84.6006)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh0os"]
+size = Vector2(83, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24g1y"]
+size = Vector2(84, 100.5)
 
 [node name="abusive_father" type="CharacterBody2D"]
 script = ExtResource("1_lcskn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, -2.5)
-scale = Vector2(191.581, 251.524)
+scale = Vector2(84, 123.5)
 texture = SubResource("PlaceholderTexture2D_ipmmq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.999996, -2)
 scale = Vector2(1.74164, 1.45389)
 shape = SubResource("RectangleShape2D_lcskn")
+
+[node name="hit_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(-0.5, 55.5)
+shape = SubResource("RectangleShape2D_oh0os")
+debug_color = Color(0.976573, 0, 0.410822, 0.42)
+
+[node name="hurt_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_24g1y")
+debug_color = Color(0.298342, 0.628581, 0, 0.42)
+
+[node name="hop_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="wall_check_r" type="RayCast2D" parent="."]
+target_position = Vector2(102, 0)
+
+[node name="wall_check_l" type="RayCast2D" parent="."]
+target_position = Vector2(102, 0)
+
+[connection signal="timeout" from="hop_timer" to="." method="_on_hop_timer_timeout"]
