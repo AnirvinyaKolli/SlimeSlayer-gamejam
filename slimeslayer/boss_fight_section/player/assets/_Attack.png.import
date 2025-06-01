@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cirop4lodk8et"
-path="res://.godot/imported/_Idle.png-7cac446897b9215548c67bb5137baa02.ctex"
+uid="uid://dunejhkhpu06m"
+path="res://.godot/imported/_Attack.png-528fdba68ba5fd952206f31b35b67b93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/_Idle.png"
-dest_files=["res://.godot/imported/_Idle.png-7cac446897b9215548c67bb5137baa02.ctex"]
+source_file="res://boss_fight_section/player/assets/_Attack.png"
+dest_files=["res://.godot/imported/_Attack.png-528fdba68ba5fd952206f31b35b67b93.ctex"]
 
 [params]
 

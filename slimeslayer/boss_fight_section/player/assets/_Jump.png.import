@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2t3ym5j5mr0q"
-path="res://.godot/imported/_Fall.png-357ac4e8bf5399a95768d6247c4c6bb3.ctex"
+uid="uid://bqxno6xl10ata"
+path="res://.godot/imported/_Jump.png-9fb68b9d1d705f13ed64076b36891146.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/_Fall.png"
-dest_files=["res://.godot/imported/_Fall.png-357ac4e8bf5399a95768d6247c4c6bb3.ctex"]
+source_file="res://boss_fight_section/player/assets/_Jump.png"
+dest_files=["res://.godot/imported/_Jump.png-9fb68b9d1d705f13ed64076b36891146.ctex"]
 
 [params]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://1m6lhadktmsw"]
+
+[ext_resource type="Script" uid="uid://dtbnplmwvna30" path="res://boss_fight_section/player/player_controller.gd" id="1_oul6g"]
+[ext_resource type="SpriteFrames" uid="uid://dvff3e6kha4y1" path="res://boss_fight_section/player/assets/player_sprites.tres" id="2_d7fyi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7fyi"]
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_76xa0"]
+radius = 33.0
+height = 66.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_oul6g")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -22)
+scale = Vector2(-0.879057, 1.05925)
+sprite_frames = ExtResource("2_d7fyi")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="attack_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="hurt_box" type="Area2D" parent="." groups=["player_hurt_box"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+shape = SubResource("CapsuleShape2D_d7fyi")
+debug_color = Color(0.350845, 0.619347, 3.85046e-07, 0.42)
+
+[node name="hit_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+shape = SubResource("CapsuleShape2D_76xa0")
+debug_color = Color(0.954585, 2.79158e-06, 0.547659, 0.42)
+
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="hit_box" to="." method="_on_hit_box_area_entered"]

@@ -14,6 +14,7 @@ size = Vector2(83, 11)
 size = Vector2(84, 100.5)
 
 [node name="abusive_father" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_lcskn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,7 +32,7 @@ position = Vector2(-0.5, 55.5)
 shape = SubResource("RectangleShape2D_oh0os")
 debug_color = Color(0.976573, 0, 0.410822, 0.42)
 
-[node name="hurt_box" type="Area2D" parent="."]
+[node name="hurt_box" type="Area2D" parent="." groups=["boss_hurt_box"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
 position = Vector2(0, -2)
@@ -48,4 +49,5 @@ target_position = Vector2(102, 0)
 [node name="wall_check_l" type="RayCast2D" parent="."]
 target_position = Vector2(102, 0)
 
+[connection signal="area_entered" from="hit_box" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="hop_timer" to="." method="_on_hop_timer_timeout"]

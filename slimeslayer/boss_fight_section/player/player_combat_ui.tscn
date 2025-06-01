@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqq57dp8710l1"]
+
+[ext_resource type="Script" uid="uid://c1lol5h6h60qa" path="res://boss_fight_section/player/player_ui.gd" id="1_n215f"]
+[ext_resource type="PackedScene" uid="uid://c8131u7l80stk" path="res://boss_fight_section/boss/boss_bar.tscn" id="2_0mobv"]
+[ext_resource type="PackedScene" uid="uid://celg0sjbpkmb1" path="res://boss_fight_section/player/assets/health_bar.tscn" id="3_8spmb"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n215f")
+
+[node name="bossbar" parent="." instance=ExtResource("2_0mobv")]
+layout_mode = 1
+offset_left = 124.0
+offset_top = 23.0
+offset_right = -108.0
+offset_bottom = -597.0
+
+[node name="health_bar" parent="." instance=ExtResource("3_8spmb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 33.0
+offset_top = 590.0
+offset_right = 366.0
+offset_bottom = 617.0
+grow_horizontal = 1
+grow_vertical = 1

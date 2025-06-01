@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cijso6wlarbqk"
-path="res://.godot/imported/_Run.png-4b80f9dcbb252513ceb39807b5d330c1.ctex"
+uid="uid://cirop4lodk8et"
+path="res://.godot/imported/_Idle.png-9684e2c444a293c2f51276af6903d72e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/_Run.png"
-dest_files=["res://.godot/imported/_Run.png-4b80f9dcbb252513ceb39807b5d330c1.ctex"]
+source_file="res://boss_fight_section/player/assets/_Idle.png"
+dest_files=["res://.godot/imported/_Idle.png-9684e2c444a293c2f51276af6903d72e.ctex"]
 
 [params]
 
