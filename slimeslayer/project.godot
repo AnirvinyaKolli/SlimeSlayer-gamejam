@@ -25,6 +25,10 @@ PlayerCombatVars="*res://globals/boss_fight/PlayerCombatVars.gd"
 
 window/vsync/vsync_mode=0
 
+[dotnet]
+
+project/assembly_name="SlimeSlayer"
+
 [global_group]
 
 player_hurt_box=""

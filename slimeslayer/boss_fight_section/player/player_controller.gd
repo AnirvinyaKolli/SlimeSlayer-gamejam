@@ -16,7 +16,8 @@ var damage = 20
 
 func _ready() -> void:
 	attack_timer.wait_time = sprite.sprite_frames.get_frame_count("attack") / sprite.sprite_frames.get_animation_speed("attack")
-
+	hit_box.monitoring = false
+	hit_box.set_collision_layer_value(1, false)
 
 func _physics_process(delta):
 	if not is_on_floor():
