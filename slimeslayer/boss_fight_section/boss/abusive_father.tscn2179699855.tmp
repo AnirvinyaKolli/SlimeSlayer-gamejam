@@ -1,10 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://2f5e016s35bm"]
 
 [ext_resource type="Script" uid="uid://6m02tohl0d2a" path="res://boss_fight_section/boss/boss_controller.gd" id="1_lcskn"]
-[ext_resource type="Texture2D" uid="uid://2vvj0wtbjpdg" path="res://boss_fight_section/boss/KingSlime.png" id="2_oh0os"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oh0os"]
-radius = 30.5552
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ipmmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcskn"]
+size = Vector2(47.6562, 84.6006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24g1y"]
 size = Vector2(84, 100.5)
@@ -14,24 +15,23 @@ collision_layer = 4
 script = ExtResource("1_lcskn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -1)
-scale = Vector2(0.158204, 0.192969)
-texture = ExtResource("2_oh0os")
+scale = Vector2(84, 123.5)
+texture = SubResource("PlaceholderTexture2D_ipmmq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 17)
 scale = Vector2(1.74164, 1.45389)
-shape = SubResource("CircleShape2D_oh0os")
+shape = SubResource("RectangleShape2D_lcskn")
 
 [node name="hurt_box" type="Area2D" parent="." groups=["boss_hurt_box"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_24g1y")
 debug_color = Color(0.298342, 0.628581, 0, 0.42)
 
 [node name="hop_timer" type="Timer" parent="."]
-one_shot = true
+wait_time = 3.0
+autostart = true
 
 [node name="wall_check_r" type="RayCast2D" parent="."]
 target_position = Vector2(102, 0)
@@ -39,10 +39,4 @@ target_position = Vector2(102, 0)
 [node name="wall_check_l" type="RayCast2D" parent="."]
 target_position = Vector2(102, 0)
 
-[node name="birth_timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
 [connection signal="timeout" from="hop_timer" to="." method="_on_hop_timer_timeout"]
-[connection signal="timeout" from="birth_timer" to="." method="_on_birth_timer_timeout"]

@@ -9,6 +9,7 @@ enum AnimState { IDLE, RUN, JUMP, FALL, ATTACK }
 var anim_state = AnimState.IDLE
 var is_attacking = false
 var damage = 20
+var direction
 
 @onready var hit_box: Area2D = $hit_box
 @onready var attack_timer: Timer = $attack_timer
@@ -30,7 +31,7 @@ func _physics_process(delta):
 		start_attack()
 
 	else:
-		var direction = Input.get_action_strength("RIGHT") - Input.get_action_strength("LEFT")
+		direction = Input.get_action_strength("RIGHT") - Input.get_action_strength("LEFT")
 		velocity.x = direction * SPEED
 
 		if Input.is_action_just_pressed("JUMP") and is_on_floor():
@@ -42,6 +43,7 @@ func _physics_process(delta):
 		update_anim_state(velocity, direction)
 
 	self.velocity = velocity
+	PlayerCombatVars.set_position(global_position)
 	move_and_slide()
 
 func start_attack():
@@ -90,5 +92,10 @@ func _on_attack_timer_timeout() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	var dir = -1
+	if sprite.flip_h:
+		dir = 1
+	
 	if area.is_in_group("boss_hurt_box"):
-		BossVars.take_damage(damage)
+		BossVars.take_damage(damage, Vector2(800 * dir, -300))
+		BossFightSignalManager.emit_signal("boss_hit")

@@ -25,6 +25,34 @@ texture = SubResource("PlaceholderTexture2D_rc4ay")
 position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_gfo2m")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1137, 326)
+rotation = -1.584
+scale = Vector2(-0.561976, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-1, 1)
+scale = Vector2(1146.05, -17.7655)
+texture = SubResource("PlaceholderTexture2D_rc4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_gfo2m")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(3, 324)
+rotation = -1.584
+scale = Vector2(-0.561976, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(-1, 1)
+scale = Vector2(1146.05, -17.7655)
+texture = SubResource("PlaceholderTexture2D_rc4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_gfo2m")
+
 [node name="abusive_father" parent="." instance=ExtResource("1_gfo2m")]
 position = Vector2(523, 289)
 

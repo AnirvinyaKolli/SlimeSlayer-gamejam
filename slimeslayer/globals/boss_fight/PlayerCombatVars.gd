@@ -4,7 +4,7 @@ const MAX_HEALTH = 200
 var current_health = MAX_HEALTH
 var is_invulnerable = false
 var damage_cooldown = 0.3
-
+var position = Vector2.ZERO
 
 @onready var invuln_timer := Timer.new()
 
@@ -26,3 +26,6 @@ func start_invulnerability() -> void:
 
 func _on_invuln_timer_timeout() -> void:
 	is_invulnerable = false
+
+func set_position(pos: Vector2):
+	self.position = pos  

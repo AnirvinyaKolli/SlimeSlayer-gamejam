@@ -4,7 +4,7 @@ const MAX_HEALTH = 1000
 var current_health = MAX_HEALTH
 var is_invulnerable = false
 var damage_cooldown = 0.3
-
+var knockback = Vector2.ZERO
 
 @onready var invuln_timer := Timer.new()
 
@@ -14,10 +14,11 @@ func _ready():
 	invuln_timer.timeout.connect(_on_invuln_timer_timeout)
 	add_child(invuln_timer)
 
-func take_damage(dmg: int) -> void:
+func take_damage(dmg: int, knockback: Vector2) -> void:
 	if is_invulnerable:
 		return  # ignore damage
 	current_health -= dmg
+	self.knockback = knockback
 	start_invulnerability()
 
 func start_invulnerability() -> void:
