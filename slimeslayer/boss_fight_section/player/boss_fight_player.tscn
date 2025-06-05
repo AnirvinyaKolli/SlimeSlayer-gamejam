@@ -24,8 +24,8 @@ texture_filter = 1
 position = Vector2(-3, -22)
 scale = Vector2(-0.879057, 1.05925)
 sprite_frames = ExtResource("2_d7fyi")
-animation = &"attack"
-frame = 3
+animation = &"attack2"
+frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -49,16 +49,17 @@ debug_color = Color(0.350845, 0.619347, 3.85046e-07, 0.42)
 
 [node name="hit_box" type="Area2D" parent="." groups=["player_hit_box"]]
 position = Vector2(-11.4803, 1.59574)
+rotation = -0.0925736
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hit_box"]
-position = Vector2(0.43667, 9.57447)
-rotation = -0.676992
+position = Vector2(-2.60921, 1.06383)
+rotation = -1.35387
 shape = SubResource("CapsuleShape2D_76xa0")
 debug_color = Color(0.954585, 2.79158e-06, 0.547659, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
-position = Vector2(-0.0851632, -10.6383)
-rotation = 0.225011
+position = Vector2(-8.87121, -6.91489)
+rotation = 0.44897
 shape = SubResource("CapsuleShape2D_76xa0")
 debug_color = Color(0.954585, 2.79158e-06, 0.547659, 0.42)
 

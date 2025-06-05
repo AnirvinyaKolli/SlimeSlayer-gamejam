@@ -5,7 +5,11 @@ var current_health = MAX_HEALTH
 var is_invulnerable = false
 var damage_cooldown = 0.3
 
+var boss = null 
 @onready var invuln_timer := Timer.new()
+
+func define_boss_node(node): 
+	boss = node
 
 func _ready():
 	invuln_timer.one_shot = true
@@ -17,6 +21,8 @@ func take_damage(dmg) -> void:
 	if is_invulnerable:
 		return  # ignore damage
 	current_health -= dmg
+	if current_health < 0:
+		boss.queue_free()
 	start_invulnerability()
 
 func start_invulnerability() -> void:
