@@ -1,24 +1,29 @@
 extends CharacterBody2D
 
 @onready var hurt_box: Area2D = $Area2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 const GRAVITY = 1500
 const DAMAGE = 50
 const HOP_TRIGGER_DISTANCE = 100
 const HOP_DURATION = 0.5
 const KNOCKBACK_DECAY = 50.0
+var health = 200 
 
 enum State { RUNNING, HOP, KNOCKBACK }
 var state = State.RUNNING
+
 
 var speed = 100.0
 var target_dir = -1
 var hop_vector = Vector2.ZERO
 
 func _ready() -> void:
-	pass
+	sprite_2d.play("default")
 
 func _physics_process(delta: float) -> void:
+	if health < 0: 
+		queue_free()
 	apply_gravity(delta)
 	handle_state(delta)
 	move_and_slide()
@@ -40,7 +45,10 @@ func handle_state(delta: float) -> void:
 	var player_pos = PlayerCombatVars.player.global_position
 	var dist = player_pos.x - position.x
 	target_dir = sign(dist)
-
+	if target_dir < 0:
+		sprite_2d.flip_h = true
+	else:
+		sprite_2d.flip_h = false
 	match state:
 		State.RUNNING:
 			velocity.x = speed * target_dir
@@ -69,6 +77,7 @@ func calculate_hop(target_pos: Vector2) -> Vector2:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hit_box"):
+		health -= 50
 		var knockback = Vector2.ZERO
 		var knockback_x_factor = randf_range(800, 1200)
 		var knockback_y_factor = randf_range(400, 600)

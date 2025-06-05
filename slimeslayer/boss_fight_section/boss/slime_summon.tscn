@@ -1,8 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://drv627wqidtbl"]
+[gd_scene load_steps=10 format=3 uid="uid://drv627wqidtbl"]
 
 [ext_resource type="Script" uid="uid://dfv6ediahurj0" path="res://boss_fight_section/boss/slime_summon_controller.gd" id="1_voaqf"]
+[ext_resource type="Texture2D" uid="uid://1s4fbdiktin6" path="res://boss_fight_section/boss/slime_sheet.png" id="2_xy4g6"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4eey0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaqv"]
+atlas = ExtResource("2_xy4g6")
+region = Rect2(1600, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvlih"]
+atlas = ExtResource("2_xy4g6")
+region = Rect2(800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g380f"]
+atlas = ExtResource("2_xy4g6")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23vde"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvlih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g380f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4eey0"]
 radius = 20.025
@@ -17,10 +45,13 @@ radius = 23.0868
 collision_layer = 8
 script = ExtResource("1_voaqf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.96046e-08, 5.96046e-08)
-scale = Vector2(40, 40)
-texture = SubResource("PlaceholderTexture2D_4eey0")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8.88178e-16, -6)
+rotation = 0.00351659
+scale = Vector2(0.107453, 0.096719)
+sprite_frames = SubResource("SpriteFrames_23vde")
+frame_progress = 0.885115
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4eey0")

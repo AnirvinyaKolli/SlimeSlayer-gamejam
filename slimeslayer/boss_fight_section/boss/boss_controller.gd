@@ -23,6 +23,11 @@ var distance = 0.0
 func _ready() -> void:
 	wall_check_l.target_position = Vector2.LEFT * height
 	wall_check_r.target_position = Vector2.RIGHT * distance
+	
+	call_deferred("add_globals")
+
+func add_globals():
+	BossVars.define_boss_node(self)
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
