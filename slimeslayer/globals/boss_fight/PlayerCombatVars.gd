@@ -6,6 +6,11 @@ var is_invulnerable = false
 var damage_cooldown = 0.3
 var position = Vector2.ZERO
 
+var player
+ 
+func set_player_node(node):
+	player = node
+
 @onready var invuln_timer := Timer.new()
 
 func _ready():

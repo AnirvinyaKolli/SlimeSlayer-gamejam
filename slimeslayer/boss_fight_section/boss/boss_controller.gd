@@ -23,7 +23,6 @@ var distance = 0.0
 func _ready() -> void:
 	wall_check_l.target_position = Vector2.LEFT * height
 	wall_check_r.target_position = Vector2.RIGHT * distance
-	BossFightSignalManager.boss_hit.connect(Callable(self, "contacted"))
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -102,11 +101,7 @@ func can_hop(dir) -> bool:
 		return not wall_check_r.is_colliding()
 	return false
 
-func contacted():
-	velocity += BossVars.knockback
-	hop_timer.stop()
-	hop_timer.start()
-
+	
 
 func _on_hop_timer_timeout() -> void:
 	var dir = get_direction()
@@ -124,6 +119,32 @@ func _on_birth_timer_timeout() -> void:
 func give_birth():
 	change_state(State.BIRTH)
 	var new_child = child.instantiate()
+	new_child.position = global_position
 	GameManager.test_scene.add_child(new_child)
 	birth_timer.start()
 	change_state(State.IDLE)
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player_hit_box"):
+		
+		BossVars.take_damage(PlayerCombatVars.player.damage)
+		
+		var knockback = Vector2(0, -200)
+		var knockback_x_factor = randf_range(400, 500)
+		var knockback_y_factor = randf_range(200,300)
+		
+		if PlayerCombatVars.player.sprite.flip_h:
+			knockback.x = PlayerCombatVars.player.velocity.x + knockback_x_factor 
+		else:
+			knockback.x = (abs( PlayerCombatVars.player.velocity.x) + knockback_x_factor ) * -1
+
+		
+		if (PlayerCombatVars.player.velocity.y < 0):
+			knockback.y = PlayerCombatVars.player.velocity.y + knockback_y_factor 
+		else:
+			knockback.y =  -1*knockback_y_factor 
+
+		velocity += knockback 
+		hop_timer.stop()
+		hop_timer.start()
