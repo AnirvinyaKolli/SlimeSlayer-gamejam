@@ -6,6 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_oyjlt"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,11 +110,11 @@ shape = SubResource("RectangleShape2D_cvuvf")
 
 [node name="ResultLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 580.0
+offset_left = 516.0
 offset_top = 448.0
-offset_right = 621.0
+offset_right = 692.0
 offset_bottom = 471.0
-text = "Place"
+text = "Try Unlocking the Lock"
 
 [node name="NextButton" type="Button" parent="."]
 layout_mode = 1
@@ -123,3 +124,7 @@ offset_top = 505.0
 offset_right = 635.0
 offset_bottom = 536.0
 text = "Button"
+
+[connection signal="area_shape_entered" from="Redzone" to="." method="_on_redzone_area_shape_entered"]
+[connection signal="area_shape_exited" from="Redzone" to="." method="_on_redzone_area_shape_exited"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
