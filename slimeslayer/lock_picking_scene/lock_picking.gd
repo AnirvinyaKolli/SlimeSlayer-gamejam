@@ -51,6 +51,6 @@ func _on_redzone_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 	
 func _on_next_button_pressed() -> void:
 	if success:
-		get_tree().change_scene_to_file("res://secret_room_scene/secret_room.tscn") #change to next scene or smt I guess
+		get_tree().change_scene_to_file("res://secret_room_scene/Lockpicked_secret_room.tscn") 
 	if not success:
 		get_tree().change_scene_to_file("res://secret_room_scene/secret_room.tscn")
