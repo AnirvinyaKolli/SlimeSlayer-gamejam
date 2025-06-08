@@ -13,10 +13,20 @@ var health = 200
 enum State { RUNNING, HOP, KNOCKBACK }
 var state = State.RUNNING
 
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var speed = 100.0
 var target_dir = -1
 var hop_vector = Vector2.ZERO
+
+
+var flash_time := 0.1
+var flash_color := Color(1, 0, 0) 
+
+func flash_red():
+	sprite_2d.modulate = flash_color
+	await get_tree().create_timer(flash_time).timeout
+	sprite_2d.modulate = Color(1, 1, 1)
 
 func _ready() -> void:
 	sprite_2d.play("default")
@@ -77,6 +87,8 @@ func calculate_hop(target_pos: Vector2) -> Vector2:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hit_box"):
+		audio.play()
+		flash_red()
 		health -= 50
 		var knockback = Vector2.ZERO
 		var knockback_x_factor = randf_range(800, 1200)

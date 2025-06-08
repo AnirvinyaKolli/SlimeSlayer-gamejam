@@ -14,20 +14,24 @@ grow_vertical = 2
 script = ExtResource("1_n215f")
 
 [node name="bossbar" parent="." instance=ExtResource("2_0mobv")]
+texture_filter = 1
 layout_mode = 1
-offset_left = 124.0
-offset_top = 23.0
-offset_right = -108.0
-offset_bottom = -597.0
+offset_left = 192.0
+offset_top = 56.0
+offset_right = -497.0
+offset_bottom = -528.0
+scale = Vector2(1.67145, 1.5258)
+value = 1000.0
 
 [node name="health_bar" parent="." instance=ExtResource("3_8spmb")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 33.0
-offset_top = 590.0
-offset_right = 366.0
-offset_bottom = 617.0
+offset_left = 23.0
+offset_top = 564.0
+offset_right = 267.0
+offset_bottom = 624.0
 grow_horizontal = 1
 grow_vertical = 1
+value = 10.0

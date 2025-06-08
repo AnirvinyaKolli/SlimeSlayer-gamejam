@@ -4,10 +4,11 @@ extends CharacterBody2D
 @onready var wall_check_r: RayCast2D = $wall_check_r
 @onready var wall_check_l: RayCast2D = $wall_check_l
 @onready var birth_timer: Timer = $birth_timer
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var squelch: AudioStreamPlayer2D = $squelch
 
 const GRAVITY = 1500
 const DAMAGE = 50
-var birth = false
 
 var child = load("res://boss_fight_section/boss/slime_summon.tscn")
 
@@ -20,6 +21,15 @@ var was_on_floor = false
 var height = 0.0
 var distance = 0.0
 
+
+var flash_time := 0.1
+var flash_color := Color(1, 0, 0) 
+
+func flash_red():
+	sprite.modulate = flash_color
+	await get_tree().create_timer(flash_time).timeout
+	sprite.modulate = Color(1, 1, 1)
+
 func _ready() -> void:
 	wall_check_l.target_position = Vector2.LEFT * height
 	wall_check_r.target_position = Vector2.RIGHT * distance
@@ -28,6 +38,7 @@ func _ready() -> void:
 
 func add_globals():
 	BossVars.define_boss_node(self)
+
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -50,9 +61,6 @@ func handle_state(delta):
 	match state:
 		State.IDLE:
 			if is_on_floor():
-				if birth:
-					birth = false
-					give_birth()
 				change_state(State.WINDUP)
 				hop_timer.start()
 		State.WINDUP:
@@ -60,6 +68,7 @@ func handle_state(delta):
 		State.HOP:
 			if is_on_floor():
 				change_state(State.IDLE)
+				squelch.play()
 		State.BIRTH: 
 			pass
 
@@ -109,6 +118,7 @@ func can_hop(dir) -> bool:
 	
 
 func _on_hop_timer_timeout() -> void:
+	
 	var dir = get_direction()
 	if dir != 0 and can_hop(dir):
 		set_jump_type()
@@ -119,12 +129,12 @@ func _on_hop_timer_timeout() -> void:
 
 
 func _on_birth_timer_timeout() -> void:
-	birth = true 
+	give_birth()
 	
 func give_birth():
 	change_state(State.BIRTH)
 	var new_child = child.instantiate()
-	new_child.position = global_position
+	new_child.position = Vector2( randf_range(200, get_viewport_rect().size.x-200), global_position.y )
 	GameManager.test_scene.add_child(new_child)
 	birth_timer.start()
 	change_state(State.IDLE)
@@ -132,6 +142,8 @@ func give_birth():
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hit_box"):
+		
+		flash_red()
 		
 		BossVars.take_damage(PlayerCombatVars.player.damage)
 		

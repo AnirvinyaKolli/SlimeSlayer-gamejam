@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://2f5e016s35bm"]
+[gd_scene load_steps=6 format=3 uid="uid://2f5e016s35bm"]
 
 [ext_resource type="Script" uid="uid://6m02tohl0d2a" path="res://boss_fight_section/boss/boss_controller.gd" id="1_lcskn"]
 [ext_resource type="Texture2D" uid="uid://2vvj0wtbjpdg" path="res://boss_fight_section/boss/KingSlime.png" id="2_oh0os"]
+[ext_resource type="AudioStream" uid="uid://6ofgt6l7jpgu" path="res://boss_fight_section/boss/squelch_2.wav" id="3_24g1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oh0os"]
 radius = 30.5552
@@ -40,8 +41,13 @@ target_position = Vector2(102, 0)
 target_position = Vector2(102, 0)
 
 [node name="birth_timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="squelch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_24g1y")
+volume_db = 5.0
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="hop_timer" to="." method="_on_hop_timer_timeout"]

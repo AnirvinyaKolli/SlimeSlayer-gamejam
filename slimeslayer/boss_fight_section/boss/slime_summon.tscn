@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://drv627wqidtbl"]
+[gd_scene load_steps=11 format=3 uid="uid://drv627wqidtbl"]
 
 [ext_resource type="Script" uid="uid://dfv6ediahurj0" path="res://boss_fight_section/boss/slime_summon_controller.gd" id="1_voaqf"]
 [ext_resource type="Texture2D" uid="uid://1s4fbdiktin6" path="res://boss_fight_section/boss/slime_sheet.png" id="2_xy4g6"]
+[ext_resource type="AudioStream" uid="uid://dmrlfod36yhsd" path="res://boss_fight_section/boss/squelch.mp3" id="3_g380f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtaqv"]
 atlas = ExtResource("2_xy4g6")
@@ -67,5 +68,9 @@ debug_color = Color(9.62615e-08, 0.645908, 0.249547, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource("CircleShape2D_xy4g6")
 debug_color = Color(0.966801, 0, 0.478267, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g380f")
+volume_db = 24.0
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_area_2d_area_entered"]
