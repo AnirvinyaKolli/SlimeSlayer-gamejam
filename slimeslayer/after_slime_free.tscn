@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxc4lfw5ce443"]
+
+[ext_resource type="Script" uid="uid://bmfuj8b4x1md7" path="res://control.gd" id="1_ce18n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ce18n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 93.0
+offset_right = -389.0
+offset_bottom = -514.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "After valiantly saving the slimes you find yourself in a maze to exit the evil slimes lair."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

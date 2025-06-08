@@ -146,7 +146,8 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		flash_red()
 		
 		BossVars.take_damage(PlayerCombatVars.player.damage)
-		
+		if BossVars.current_health < 0:
+			get_tree().change_scene_to_file("res://secret_room_scene/secret_room.tscn")
 		var knockback = Vector2(0, -200)
 		var knockback_x_factor = randf_range(400, 500)
 		var knockback_y_factor = randf_range(200,300)
