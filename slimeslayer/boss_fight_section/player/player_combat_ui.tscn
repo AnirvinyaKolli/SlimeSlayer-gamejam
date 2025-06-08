@@ -21,7 +21,7 @@ offset_top = 56.0
 offset_right = -497.0
 offset_bottom = -528.0
 scale = Vector2(1.67145, 1.5258)
-value = 1000.0
+value = 100.0
 
 [node name="health_bar" parent="." instance=ExtResource("3_8spmb")]
 layout_mode = 0

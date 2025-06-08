@@ -22,6 +22,7 @@ func take_damage(dmg) -> void:
 		return  # ignore damage
 	current_health -= dmg
 	if current_health < 0:
+		get_tree().change_scene_to_file("res://secret_room_scene/secret_room.tscn")
 		boss.queue_free()
 	start_invulnerability()
 
