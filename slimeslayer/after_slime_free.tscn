@@ -26,7 +26,11 @@ text = "After valiantly saving the slimes you find yourself in a maze to exit th
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 362.0
+offset_top = 256.0
+offset_right = 534.0
+offset_bottom = 305.0
+text = "Next
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
