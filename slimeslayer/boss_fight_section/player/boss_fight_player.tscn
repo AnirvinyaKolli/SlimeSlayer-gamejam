@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1m6lhadktmsw"]
+[gd_scene load_steps=7 format=3 uid="uid://1m6lhadktmsw"]
 
 [ext_resource type="Script" uid="uid://dtbnplmwvna30" path="res://boss_fight_section/player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="SpriteFrames" uid="uid://dvff3e6kha4y1" path="res://boss_fight_section/player/assets/player_sprites.tres" id="2_d7fyi"]
+[ext_resource type="AudioStream" uid="uid://di7bfmb0m6mx1" path="res://boss_fight_section/player/assets/slash.mp3" id="3_76xa0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 11.0
@@ -62,6 +63,12 @@ position = Vector2(-8.87121, -6.91489)
 rotation = 0.44897
 shape = SubResource("CapsuleShape2D_76xa0")
 debug_color = Color(0.954585, 2.79158e-06, 0.547659, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_76xa0")
+volume_db = 0.1
+max_distance = 701.0
+attenuation = 0.450625
 
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

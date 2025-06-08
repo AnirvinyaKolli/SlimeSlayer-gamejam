@@ -4,7 +4,9 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000.0
 const MAX_FALL_SPEED = 700.0
-const DASH_SPEED = 800.0
+const DASH_SPEED = 1200.0
+
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 enum AnimState { IDLE, RUN, JUMP, FALL, ATTACK, DASH }
 
@@ -14,7 +16,7 @@ var current_attack = 0;
 var anim_state = AnimState.IDLE
 var is_attacking = false
 var can_dash = true
-var damage = 20
+var damage = 10
 var direction
 
 @onready var hurt_box: Area2D = $hurt_box
@@ -24,6 +26,14 @@ var direction
 @onready var attack_timer: Timer = $attack_timer
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+var flash_time := 0.1
+var flash_color := Color(1, 0, 0) 
+
+func flash_red():
+	sprite.modulate = flash_color
+	await get_tree().create_timer(flash_time).timeout
+	sprite.modulate = Color(1, 1, 1)
+	
 func _ready() -> void:
 	attack_timer.wait_time = sprite.sprite_frames.get_frame_count(Attacks[current_attack]) / sprite.sprite_frames.get_animation_speed(Attacks[current_attack])
 	dash_timer.wait_time = sprite.sprite_frames.get_frame_count("dash") / sprite.sprite_frames.get_animation_speed("dash")
@@ -76,7 +86,8 @@ func start_attack():
 	hit_box.monitoring = true
 	hit_box.set_collision_layer_value(1, true) 
 	change_anim_state(AnimState.ATTACK)
-
+	audio.pitch_scale = randf_range(1, 2)
+	audio.play()
 func start_dash():
 	if sprite.flip_h:
 		velocity.x += DASH_SPEED
@@ -140,6 +151,7 @@ func _on_attack_timer_timeout() -> void:
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("boss_hit_box"):
 		PlayerCombatVars.take_damage(10)
+		flash_red()
 
 
 func _on_dash_timer_timeout() -> void:

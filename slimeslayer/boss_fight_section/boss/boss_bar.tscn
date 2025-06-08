@@ -1,13 +1,17 @@
-[gd_scene format=3 uid="uid://c8131u7l80stk"]
+[gd_scene load_steps=3 format=3 uid="uid://c8131u7l80stk"]
 
-[node name="bossbar" type="ProgressBar"]
+[ext_resource type="Texture2D" uid="uid://bcst00vpiwwt4" path="res://boss_fight_section/boss/boss_bar.png" id="1_fg3wp"]
+[ext_resource type="Texture2D" uid="uid://djephdxhrsltr" path="res://boss_fight_section/boss/boss_bar_fill.png" id="2_b03ys"]
+
+[node name="bossbar" type="TextureProgressBar"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 121.0
-offset_top = 21.0
-offset_right = -111.0
-offset_bottom = -599.0
+offset_left = 57.0
+offset_right = -71.0
+offset_bottom = -392.0
 grow_horizontal = 2
 grow_vertical = 2
-show_percentage = false
+scale = Vector2(0.978539, 0.587386)
+texture_over = ExtResource("1_fg3wp")
+texture_progress = ExtResource("2_b03ys")

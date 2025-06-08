@@ -1,13 +1,18 @@
-[gd_scene format=3 uid="uid://celg0sjbpkmb1"]
+[gd_scene load_steps=3 format=3 uid="uid://celg0sjbpkmb1"]
 
-[node name="health_bar" type="ProgressBar"]
+[ext_resource type="Texture2D" uid="uid://bgu8ogj5clfkd" path="res://boss_fight_section/player/assets/bar_full.png" id="1_j8854"]
+[ext_resource type="Texture2D" uid="uid://6gykuwu7lds1" path="res://boss_fight_section/player/assets/bar.png" id="2_c0t2d"]
+
+[node name="health_bar" type="TextureProgressBar"]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = 600.0
-offset_right = -845.0
-offset_bottom = -13.0
+offset_left = 21.0
+offset_top = 571.0
+offset_right = -887.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-show_percentage = false
+texture_over = ExtResource("2_c0t2d")
+texture_progress = ExtResource("1_j8854")

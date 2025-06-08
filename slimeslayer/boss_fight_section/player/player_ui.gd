@@ -1,6 +1,6 @@
 extends Control
-@onready var bossbar: ProgressBar = $bossbar
-@onready var health_bar: ProgressBar = $health_bar
+@onready var bossbar: TextureProgressBar = $bossbar
+@onready var health_bar: TextureProgressBar = $health_bar
 
 func _ready() -> void:
 	bossbar.max_value = BossVars.MAX_HEALTH
