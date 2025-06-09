@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://q2aw80fjndej"]
+[gd_scene load_steps=3 format=3 uid="uid://do6ips3wmnb3o"]
 
 [ext_resource type="Script" uid="uid://dqhmmrlckx0kf" path="res://maze_player.gd" id="1_2osyy"]
 
@@ -7,12 +7,13 @@
 [node name="CharacterBody2D2" type="CharacterBody2D" groups=["maze_player"]]
 script = ExtResource("1_2osyy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["maze_player"]]
-shape = SubResource("CircleShape2D_7b76o")
-
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -11.0
-offset_right = 12.0
-offset_bottom = 10.0
+offset_left = 42.0
+offset_top = -9.0
+offset_right = 64.0
+offset_bottom = 12.0
 color = Color(0, 0.124027, 0.159469, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["maze_player"]]
+position = Vector2(53, 2)
+shape = SubResource("CircleShape2D_7b76o")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://cxc4lfw5ce443"]
 
 [ext_resource type="Script" uid="uid://bmfuj8b4x1md7" path="res://control.gd" id="1_ce18n"]
-[ext_resource type="PackedScene" uid="uid://dkkgsx3b6tprg" path="res://testing/tile_map_layer.tscn" id="2_0mc3w"]
+[ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="2_0mc3w"]
 [ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://boss_fight_section/player/boss_fight_player.tscn" id="3_1m367"]
-[ext_resource type="PackedScene" uid="uid://c5hdyn3lta2yj" path="res://display_slime.tscn" id="4_1m367"]
+[ext_resource type="PackedScene" path="res://display_slime.tscn" id="4_1m367"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

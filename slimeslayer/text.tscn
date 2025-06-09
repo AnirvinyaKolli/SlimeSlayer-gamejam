@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb4bd1unl4g5k"]
+[gd_scene load_steps=4 format=3 uid="uid://bcyg6x875egf7"]
 
-[ext_resource type="Script" path="res://text.gd" id="1_1d40f"]
-[ext_resource type="PackedScene" uid="uid://dkkgsx3b6tprg" path="res://testing/tile_map_layer.tscn" id="2_oskos"]
+[ext_resource type="Script" uid="uid://b6tllf8rdhkl3" path="res://text.gd" id="1_1d40f"]
+[ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="2_oskos"]
 [ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://boss_fight_section/player/boss_fight_player.tscn" id="3_gdqd4"]
 
 [node name="Text" type="Node2D"]
