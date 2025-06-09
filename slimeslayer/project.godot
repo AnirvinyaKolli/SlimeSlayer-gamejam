@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SlimeSlayer"
-run/main_scene="uid://b0x2wg1vcx0q1"
+run/main_scene="uid://bbk7daablcmhs"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcyg6x875egf7"]
+
+[ext_resource type="Script" uid="uid://b6tllf8rdhkl3" path="res://text.gd" id="1_1d40f"]
+[ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="2_oskos"]
+[ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://boss_fight_section/player/boss_fight_player.tscn" id="3_gdqd4"]
+
+[node name="Text" type="Node2D"]
+script = ExtResource("1_1d40f")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_oskos")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_gdqd4")]
+position = Vector2(211, 560)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 248.0
+offset_top = 81.0
+offset_right = 947.0
+offset_bottom = 123.0
+text = "Finnaly, vengance upon the king slime has been completed. My village has been avenged!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
