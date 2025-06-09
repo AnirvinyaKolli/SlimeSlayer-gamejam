@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://beeey8tmxoo1n"]
+
+[ext_resource type="Texture2D" uid="uid://2vvj0wtbjpdg" path="res://boss_fight_section/boss/KingSlime.png" id="1_jvrxn"]
+[ext_resource type="Script" uid="uid://bu26beacpt818" path="res://end_button.gd" id="2_vitp6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 297)
+scale = Vector2(1.59063, 1)
+texture = ExtResource("1_jvrxn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 587.0
+offset_right = 928.0
+offset_bottom = 636.0
+text = "The slimes hopped away happily following their savior... little did they know...
+he wasnt there to save them but rather... enslave them...  much like the king slime wanted."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 93.0
+offset_right = 1105.0
+offset_bottom = 123.0
+text = "again?"
+script = ExtResource("2_vitp6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

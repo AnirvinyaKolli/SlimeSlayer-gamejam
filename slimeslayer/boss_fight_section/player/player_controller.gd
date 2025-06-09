@@ -31,6 +31,8 @@ var flash_color := Color(1, 0, 0)
 
 func flash_red():
 	sprite.modulate = flash_color
+	if get_tree() == null:
+		return
 	await get_tree().create_timer(flash_time).timeout
 	sprite.modulate = Color(1, 1, 1)
 	

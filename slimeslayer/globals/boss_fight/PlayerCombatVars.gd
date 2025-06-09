@@ -23,6 +23,8 @@ func take_damage(dmg: int) -> void:
 	if is_invulnerable:
 		return  # ignore damage
 	current_health -= dmg
+	if current_health < 0:
+		get_tree().change_scene_to_file("res://main_ui.tscn")
 	start_invulnerability()
 
 func start_invulnerability() -> void:
