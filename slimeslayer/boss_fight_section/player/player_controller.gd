@@ -154,8 +154,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("boss_hit_box"):
 		PlayerCombatVars.take_damage(10)
 		flash_red()
-
-
+	if PlayerCombatVars.current_health < 0:
+			get_tree().change_scene_to_file("res://MainUI/main_ui.tscn")
+			PlayerCombatVars.current_health = 200
+			BossVars.current_health = 500
 func _on_dash_timer_timeout() -> void:
 	dash_cooldown.start()
 	hit_box.monitoring = false
