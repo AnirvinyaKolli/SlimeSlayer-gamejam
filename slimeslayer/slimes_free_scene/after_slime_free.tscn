@@ -46,4 +46,12 @@ scale = Vector2(0.0442459, 0.0454961)
 wait_time = 4.0
 autostart = true
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 378.0
+offset_right = 594.0
+offset_bottom = 401.0
+text = "WE ARE SAVED!"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

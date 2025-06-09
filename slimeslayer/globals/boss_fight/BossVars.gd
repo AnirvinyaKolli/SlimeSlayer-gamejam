@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_HEALTH = 500
+const MAX_HEALTH = 350
 
 var current_health = MAX_HEALTH
 var is_invulnerable = false

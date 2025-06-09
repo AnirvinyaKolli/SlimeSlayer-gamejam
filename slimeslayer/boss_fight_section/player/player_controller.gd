@@ -157,7 +157,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if PlayerCombatVars.current_health < 0:
 			get_tree().change_scene_to_file("res://MainUI/main_ui.tscn")
 			PlayerCombatVars.current_health = 200
-			BossVars.current_health = 500
+			BossVars.current_health = 350
 func _on_dash_timer_timeout() -> void:
 	dash_cooldown.start()
 	hit_box.monitoring = false
