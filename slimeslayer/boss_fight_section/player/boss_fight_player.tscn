@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 11.0
-height = 40.0
+height = 30.8511
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7fyi"]
 height = 40.0
@@ -22,8 +22,8 @@ script = ExtResource("1_oul6g")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-3, -22)
-scale = Vector2(-0.879057, 1.05925)
+position = Vector2(-2.86611, -21.5906)
+scale = Vector2(-0.881288, 1.06949)
 sprite_frames = ExtResource("2_d7fyi")
 animation = &"attack2"
 frame = 5
