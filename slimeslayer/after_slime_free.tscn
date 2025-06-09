@@ -39,24 +39,24 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "After saving the slimes you find yourself in a maze to exit the evil slimes lair."
 
-[node name="Sprite2D" parent="Label" instance=ExtResource("4_1m367")]
-position = Vector2(213.182, 221.698)
-scale = Vector2(0.0442459, 0.0454961)
-
-[node name="Sprite2D2" parent="Label" instance=ExtResource("4_1m367")]
-position = Vector2(415.598, 205.603)
-scale = Vector2(0.0442459, 0.0454961)
-
-[node name="Sprite2D3" parent="Label" instance=ExtResource("4_1m367")]
-position = Vector2(172.698, 141.222)
-scale = Vector2(0.0442459, 0.0454961)
-
-[node name="Sprite2D4" parent="Label" instance=ExtResource("4_1m367")]
-position = Vector2(402.104, 137.198)
-scale = Vector2(0.0442459, 0.0454961)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
 autostart = true
+
+[node name="Sprite2D" parent="." instance=ExtResource("4_1m367")]
+position = Vector2(485.8, 547.239)
+scale = Vector2(0.0442459, 0.0454961)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("4_1m367")]
+position = Vector2(688.217, 531.143)
+scale = Vector2(0.0442459, 0.0454961)
+
+[node name="Sprite2D3" parent="." instance=ExtResource("4_1m367")]
+position = Vector2(445.317, 466.762)
+scale = Vector2(0.0442459, 0.0454961)
+
+[node name="Sprite2D4" parent="." instance=ExtResource("4_1m367")]
+position = Vector2(674.723, 462.738)
+scale = Vector2(0.0442459, 0.0454961)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

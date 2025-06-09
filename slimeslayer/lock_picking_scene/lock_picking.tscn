@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bsdtjt8dbq8er" path="res://lock_picking_scene/lock_picking.gd" id="1_wxdy2"]
 [ext_resource type="Texture2D" uid="uid://8bfsq8gqipdk" path="res://lock_picking_scene/Lock.png" id="2_l0ul1"]
 [ext_resource type="Texture2D" uid="uid://ceoyuig3bfo0j" path="res://lock_picking_scene/Lockpick.webp" id="3_ukxtl"]
-[ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="4_4kglk"]
+[ext_resource type="PackedScene" uid="uid://dkkgsx3b6tprg" path="res://testing/tile_map_layer.tscn" id="4_4kglk"]
 
 [sub_resource type="Animation" id="Animation_oyjlt"]
 length = 0.001

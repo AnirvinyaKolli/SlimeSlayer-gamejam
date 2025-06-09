@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0x2wg1vcx0q1"]
 
 [ext_resource type="Script" uid="uid://bolxp0ctvuxmu" path="res://button.gd" id="1_2ppmm"]
-[ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="1_w37m7"]
+[ext_resource type="PackedScene" uid="uid://dkkgsx3b6tprg" path="res://testing/tile_map_layer.tscn" id="1_w37m7"]
 [ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://boss_fight_section/player/boss_fight_player.tscn" id="4_llbac"]
 
 [node name="MainUi" type="Control"]
