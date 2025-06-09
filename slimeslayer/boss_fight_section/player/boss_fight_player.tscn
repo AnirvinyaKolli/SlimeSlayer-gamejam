@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 11.0
-height = 30.8511
+height = 40.4255
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7fyi"]
 height = 40.0
@@ -30,6 +30,7 @@ frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.08733, 1.59574)
 shape = SubResource("CapsuleShape2D_oul6g")
 
 [node name="attack_timer" type="Timer" parent="."]
@@ -45,6 +46,7 @@ one_shot = true
 [node name="hurt_box" type="Area2D" parent="." groups=["player_hurt_box"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(-3.131, 1.59574)
 shape = SubResource("CapsuleShape2D_d7fyi")
 debug_color = Color(0.350845, 0.619347, 3.85046e-07, 0.42)
 
