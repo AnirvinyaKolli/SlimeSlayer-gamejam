@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dimhu6hslc7bq"]
 
 [ext_resource type="Texture2D" uid="uid://2vvj0wtbjpdg" path="res://boss_fight_section/boss/KingSlime.png" id="1_jvrxn"]
-[ext_resource type="Script" uid="uid://be5aq82q4tixy" path="res://end_scene.gd" id="1_vitp6"]
+[ext_resource type="Script" uid="uid://be5aq82q4tixy" path="res://Ending/end_scene.gd" id="1_vitp6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,12 +26,8 @@ offset_bottom = 636.0
 text = "The slimes hopped away happily following their savior... little did they know...
 he wasnt there to save them but rather... enslave them...  much like the king slime wanted."
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 996.0
-offset_top = 93.0
-offset_right = 1105.0
-offset_bottom = 123.0
-text = "again?"
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcyg6x875egf7"]
 
-[ext_resource type="Script" uid="uid://b6tllf8rdhkl3" path="res://text.gd" id="1_1d40f"]
+[ext_resource type="Script" uid="uid://b6tllf8rdhkl3" path="res://player_text/text.gd" id="1_1d40f"]
 [ext_resource type="PackedScene" path="res://testing/tile_map_layer.tscn" id="2_oskos"]
 [ext_resource type="PackedScene" uid="uid://1m6lhadktmsw" path="res://boss_fight_section/player/boss_fight_player.tscn" id="3_gdqd4"]
 
@@ -25,7 +25,7 @@ text = "Finnaly, vengance upon the king slime has been completed. My village has
 I must go... \"save\" them!"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
